@@ -1,6 +1,7 @@
 import 'package:auto_size_text_pk/auto_size_text_pk.dart';
 import 'package:flutter/material.dart';
 import 'package:onex_app/constant/colors.dart';
+import 'package:onex_app/constant/fonts.dart';
 import 'package:onex_app/constant/keys.dart';
 import 'package:onex_app/models/on_borading_model.dart';
 import 'package:onex_app/screens/home_screen.dart';
@@ -22,6 +23,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   void submit() {
     SharedHelper.cacheData(key: ONBOARDING, value: true).then(
       (value) => {
+        SharedHelper.cacheData(key: LANGUAGES, value: 'ar'),
         Transitioner(
           context: context,
           child: HomeScreen(),
@@ -38,19 +40,22 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   Widget build(BuildContext context) {
     final List<OnBoardingModel> onBoardingdata = [
       OnBoardingModel(
-        imageUrl: 'assets/images/onB1.png',
-        title: 'عنوان رقم واحد',
-        description: 'وصف رقم واحد',
+        imageUrl: 'assets/images/1.png',
+        title: 'ابحث عن المنتج',
+        description:
+            'يتيح لك محرك البحث خيارات عديدة بطريقة البحث قم باختيار الطريقة المناسبة البحث بالاسم او بالباركود او رقم الموديل او بالصورة',
       ),
       OnBoardingModel(
-        imageUrl: 'assets/images/onB4.png',
-        title: 'عنوان رقم اتنين',
-        description: 'وصف رقم اتنين',
+        imageUrl: 'assets/images/2.png',
+        title: 'تصفح العروض',
+        description:
+            'قارن الاسعار بين اشهر المتاجر الالكترونية في السعودية والخليج',
       ),
       OnBoardingModel(
-        imageUrl: 'assets/images/onB2.png',
-        title: 'عنوان رقم تلاته',
-        description: 'وصف رقم تلاته',
+        imageUrl: 'assets/images/3.png',
+        title: 'تسوق اونلاين',
+        description:
+            'اختار المتجر المناسب واذهب اليه بسهوله لإتمام عمليه الشراء',
       ),
     ];
     return Scaffold(
@@ -96,10 +101,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   return SingleChildScrollView(
                     physics: BouncingScrollPhysics(),
                     child: Column(
-                      crossAxisAlignment:
-                          SharedHelper.getCacheData(key: LANGUAGES) == 'EN'
-                              ? CrossAxisAlignment.start
-                              : CrossAxisAlignment.end,
+                      textDirection: TextDirection.rtl,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Image.asset(
                           '${onBoardingdata[index].imageUrl}',
@@ -113,39 +116,25 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                             children: [
                               AutoSizeText(
                                 '${onBoardingdata[index].title}',
-                                textDirection:
-                                    SharedHelper.getCacheData(key: LANGUAGES) ==
-                                            'AR'
-                                        ? TextDirection.rtl
-                                        : SharedHelper.getCacheData(
-                                                    key: LANGUAGES) ==
-                                                'KR'
-                                            ? TextDirection.rtl
-                                            : TextDirection.ltr,
+                                textDirection: TextDirection.rtl,
                                 maxLines: 1,
                                 style: TextStyle(
                                   fontSize: 22.0,
                                   fontWeight: FontWeight.bold,
+                                  fontFamily: ARFONT,
                                 ),
                               ),
                               SizedBox(height: 20.0),
                               AutoSizeText(
                                 '${onBoardingdata[index].description}',
                                 maxLines: 4,
-                                textDirection:
-                                    SharedHelper.getCacheData(key: LANGUAGES) ==
-                                            'AR'
-                                        ? TextDirection.rtl
-                                        : SharedHelper.getCacheData(
-                                                    key: LANGUAGES) ==
-                                                'KR'
-                                            ? TextDirection.rtl
-                                            : TextDirection.ltr,
+                                textDirection: TextDirection.rtl,
                                 style: TextStyle(
-                                  fontSize: 22.0,
+                                  fontSize: 20.0,
                                   fontWeight: FontWeight.w400,
+                                  fontFamily: ARFONT,
                                 ),
-                                textAlign: TextAlign.start,
+                                textAlign: TextAlign.center,
                               ),
                             ],
                           ),

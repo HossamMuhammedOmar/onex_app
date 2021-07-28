@@ -28,4 +28,49 @@ class LanguagesCubit extends Cubit<LanguagesState> {
     }
     return '';
   }
+
+  String categories() {
+    if (SharedHelper.getCacheData(key: LANGUAGES) == 'ar') {
+      return 'الأقسام';
+    } else if (SharedHelper.getCacheData(key: LANGUAGES) == 'en') {
+      return 'Categories';
+    }
+    return '';
+  }
+
+  String changeLanguage() {
+    if (SharedHelper.getCacheData(key: LANGUAGES) == 'ar') {
+      return 'تغيير اللغه';
+    } else if (SharedHelper.getCacheData(key: LANGUAGES) == 'en') {
+      return 'Change Language';
+    }
+    return '';
+  }
+
+  String favorite() {
+    if (SharedHelper.getCacheData(key: LANGUAGES) == 'ar') {
+      return 'مفضلتي';
+    } else if (SharedHelper.getCacheData(key: LANGUAGES) == 'en') {
+      return 'Favorite';
+    }
+    return '';
+  }
+
+  String loginOrRegister() {
+    if (SharedHelper.getCacheData(key: LANGUAGES) == 'ar') {
+      return 'دخول/تسجيل';
+    } else if (SharedHelper.getCacheData(key: LANGUAGES) == 'en') {
+      return 'Login/Register';
+    }
+    return '';
+  }
+
+  String logout() {
+    if (SharedHelper.getCacheData(key: LANGUAGES) == 'ar') {
+      return 'تسجيل الخروج';
+    } else if (SharedHelper.getCacheData(key: LANGUAGES) == 'en') {
+      return 'Logout';
+    }
+    return '';
+  }
 }
