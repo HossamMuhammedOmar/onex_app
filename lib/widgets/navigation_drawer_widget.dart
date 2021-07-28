@@ -20,39 +20,48 @@ class NavigationDrawerWidget extends StatelessWidget {
         color: Colors.white,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
-          child: ListView(
+          child: Column(
             children: [
-              // const SizedBox(height: 24),
-              Divider(color: mGreyColor.withOpacity(.5)),
-              const SizedBox(height: 24),
-              _buildMenuItem(
-                text: '${LanguagesCubit.get(context).homeScreenText()}',
-                icon: Icons.home_filled,
-                onClick: () => _selectedItem(context, 0),
+              Padding(
+                padding: const EdgeInsets.only(top: 100),
+                child: Image.asset('assets/images/logo.png'),
               ),
-              const SizedBox(height: 16),
-              _buildMenuItem(
-                text: '${LanguagesCubit.get(context).categories()}',
-                icon: Icons.language,
-                onClick: () => _selectedItem(context, 1),
-              ),
-              const SizedBox(height: 16),
-              _buildMenuItem(
-                text: '${LanguagesCubit.get(context).favorite()}',
-                icon: Icons.history,
-                onClick: () => _selectedItem(context, 2),
-              ),
-              const SizedBox(height: 16),
-              _buildMenuItem(
-                text: '${LanguagesCubit.get(context).changeLanguage()}',
-                icon: Icons.beenhere_outlined,
-                onClick: () => _selectedItem(context, 3),
-              ),
-              const SizedBox(height: 16),
-              _buildMenuItem(
-                text: '${LanguagesCubit.get(context).logout()}',
-                icon: Icons.logout,
-                onClick: () => _selectedItem(context, 4),
+              Expanded(
+                child: ListView(
+                  children: [
+                    Divider(color: mGreyColor.withOpacity(.5)),
+                    const SizedBox(height: 24),
+                    _buildMenuItem(
+                      text: '${LanguagesCubit.get(context).homeScreenText()}',
+                      icon: Icons.home_filled,
+                      onClick: () => _selectedItem(context, 0),
+                    ),
+                    const SizedBox(height: 16),
+                    _buildMenuItem(
+                      text: '${LanguagesCubit.get(context).categories()}',
+                      icon: Icons.language,
+                      onClick: () => _selectedItem(context, 1),
+                    ),
+                    const SizedBox(height: 16),
+                    _buildMenuItem(
+                      text: '${LanguagesCubit.get(context).favorite()}',
+                      icon: Icons.history,
+                      onClick: () => _selectedItem(context, 2),
+                    ),
+                    const SizedBox(height: 16),
+                    _buildMenuItem(
+                      text: '${LanguagesCubit.get(context).changeLanguage()}',
+                      icon: Icons.beenhere_outlined,
+                      onClick: () => _selectedItem(context, 3),
+                    ),
+                    const SizedBox(height: 16),
+                    _buildMenuItem(
+                      text: '${LanguagesCubit.get(context).logout()}',
+                      icon: Icons.logout,
+                      onClick: () => _selectedItem(context, 4),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
