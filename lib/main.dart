@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:onex_app/bloc/lang/cubit.dart';
-import 'package:onex_app/screens/on_boarding_screen.dart';
+import 'helpers/dio_helper.dart';
 import 'helpers/shared_helper.dart';
+import 'screens/on_boarding_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  DioHelper.init();
   await SharedHelper.init();
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);

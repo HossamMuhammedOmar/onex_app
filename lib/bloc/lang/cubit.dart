@@ -73,4 +73,13 @@ class LanguagesCubit extends Cubit<LanguagesState> {
     }
     return '';
   }
+
+  String languageSetting() {
+    if (SharedHelper.getCacheData(key: LANGUAGES) == 'ar') {
+      return 'إعدادات اللغه';
+    } else if (SharedHelper.getCacheData(key: LANGUAGES) == 'en') {
+      return 'Language Setting';
+    }
+    return '';
+  }
 }
