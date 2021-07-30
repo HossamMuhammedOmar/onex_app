@@ -42,11 +42,10 @@ class DioHelper {
 
   static Future<Response> getData({
     required String url,
-    String? token,
   }) async {
     dio!.options.headers = {
       'Content-Type': 'application/json',
-      'Authorization': token ?? ' ',
+      'api_key': '5hpHX9BLhFgPbfsZjMmu93PwdeFzyYGrkLFejh3TtzgoRQ3qRi',
     };
     return await dio!.get(url);
   }

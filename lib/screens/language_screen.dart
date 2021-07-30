@@ -24,14 +24,19 @@ class LanguageScreen extends StatelessWidget {
       endDrawer: lang == 'ar' ? NavigationDrawerWidget() : null,
       drawer: lang == 'en' ? NavigationDrawerWidget() : null,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        leading: lang == 'ar'
+            ? IconButton(
+                icon: Icon(Icons.search),
+                onPressed: () {},
+              )
+            : null,
         title: Text(
-          '${LanguagesCubit.get(context).languageSetting()}',
+          '${LanguagesCubit.get(context).categories()}',
           style: TextStyle(
-            color: mGreyColor,
             fontFamily: lang == 'ar' ? ARFONT : ENFONT,
           ),
         ),
+        backgroundColor: mPrimaryColor,
       ),
       body: LayoutBuilder(
         builder: (context, constraint) {
